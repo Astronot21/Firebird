@@ -1,0 +1,6 @@
+delta=0.1
+substrate=5
+resist=1
+iterations=10
+ambient=12
+s_sense=20.0

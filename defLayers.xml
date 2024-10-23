@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LayerDefinitionFile>
+    <layer>
+        <LayerNumber>1</LayerNumber>
+        <Material>Molybdenum</Material>
+        <Thickness>0.5</Thickness> <!-- microns-->
+        <ThermalConductivity>138</ThermalConductivity> <!-- W/mK-->
+        <SpecificHeatCapacity>250</SpecificHeatCapacity> <!-- J/kgK-->
+        <Density>10280</Density> <!-- kg/m3-->
+    </layer>
+    <layer>
+        <LayerNumber>5</LayerNumber>
+        <Material>Silicon Dioxide</Material>
+        <Thickness>0.5</Thickness> <!-- microns-->
+        <ThermalConductivity>148</ThermalConductivity> <!-- W/mK-->
+        <SpecificHeatCapacity>700</SpecificHeatCapacity> <!-- J/kgK-->
+        <Density>2330</Density> <!-- kg/m3-->
+    </layer>
+</LayerDefinitionFile>
