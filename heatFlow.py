@@ -28,7 +28,7 @@ def apply_heat_flux_to_resistor_regions(V, domain, cell_tags, resistor_data):
     """
     # Number of nodes (DOFs)
     num_dofs = V.dofmap.index_map.size_local
-    print(f"\033[103mDOFS: {num_dofs}\033[0m")
+    # print(f"\033[103mDOFS: {num_dofs}\033[0m")
 
     # Initialize arrays to accumulate heat flux contributions and counts at nodes
     heat_flux_accum = np.zeros(num_dofs, dtype=PETSc.ScalarType)
@@ -41,7 +41,7 @@ def apply_heat_flux_to_resistor_regions(V, domain, cell_tags, resistor_data):
         
         # Get cells that belong to the current resistor
         resistor_cells = cell_tags.find(resistor_id + 1)
-        print(f"\033[103mCells in resistor: {resistor_cells.size}\033[0m")
+        # print(f"\033[103mCells in resistor: {resistor_cells.size}\033[0m")
         # print(resistor_cells.size) DEBUG
         
         # Calculate the heat flux for each resistor
@@ -89,10 +89,10 @@ def add_boundary_conditions(V, domain, facet_tags, T_ambient):
     # Iterate over each boundary marker (assuming markers 1 to 4 for each boundary line)
     for boundary_marker in range(1, 5):
         boundary_facets = facet_tags.find(boundary_marker)
-        boundary_dofs = fem.locate_dofs_topological(V, domain.topology.dim - 1, boundary_facets)
+        # boundary_dofs = fem.locate_dofs_topological(V, domain.topology.dim - 1, boundary_facets)
 
-        # Apply Dirichlet boundary condition to the found DOFs
-        boundary_conditions.append(dirichletbc(PETSc.ScalarType(T_ambient), boundary_dofs, V))
+        # # Apply Dirichlet boundary condition to the found DOFs
+        # boundary_conditions.append(dirichletbc(PETSc.ScalarType(T_ambient), boundary_dofs, V))
 
     return boundary_conditions
 
