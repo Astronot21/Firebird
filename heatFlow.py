@@ -46,7 +46,7 @@ def apply_heat_flux_to_resistor_regions(V, domain, cell_tags, resistor_data):
         
         # Calculate the heat flux for each resistor
         area = resistor['length'] * resistor['width']
-        flux = power / area * 1000
+        flux = power / area * 230 # units of uW/um2 = W/m2
         
         # Loop through cells in the resistor
         for cell_index in resistor_cells:
@@ -206,8 +206,10 @@ def findHeatSolution(msh_filename, layout_length:float, layout_width:float, rho_
             T_n.x.array[:] = T_new.x.array[:]
 
             # ----------------------------- Save the solution ---------------------------- #
-            vtk_filename = f"heat_solution_step_{step}.vtk"
-            generateOutputFiles.write_legacy_vtk(vtk_filename, domain, T_new, step, current_time)
+            if step % 10 == 0:
+                vtk_filename = f"heat_solution_step_{step}.vtk"
+                generateOutputFiles.write_legacy_vtk(vtk_filename, domain, T_new, step, current_time)
+
 
             pbar.update(1) # Update the progress bar
 
